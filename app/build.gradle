@@ -46,6 +46,12 @@ android {
             zipAlignEnabled false
             manifestPlaceholders = [enableCrashReporting: "false"]
             buildConfigField "String", "BASE_GOREST_API_URL", DEVELOPMENT_BASE_GOREST_API_URL
+
+            if (secretKeyPropertiesFile.exists()) {
+                buildConfigField("String", "GOREST_API_TOKEN", secretKeyProperties['DEVELOPMENT_GOREST_API_TOKEN'])
+            } else {
+                buildConfigField("String", "GOREST_API_TOKEN", "\"${System.env.DEVELOPMENT_GOREST_API_TOKEN}\"")
+            }
         }
         staging {
             debuggable true
@@ -53,6 +59,12 @@ android {
             zipAlignEnabled false
             manifestPlaceholders = [enableCrashReporting: "true"]
             buildConfigField "String", "BASE_GOREST_API_URL", STAGING_BASE_GOREST_API_URL
+
+            if (secretKeyPropertiesFile.exists()) {
+                buildConfigField("String", "GOREST_API_TOKEN", secretKeyProperties['STAGING_GOREST_API_TOKEN'])
+            } else {
+                buildConfigField("String", "GOREST_API_TOKEN", "\"${System.env.STAGING_GOREST_API_TOKEN}\"")
+            }
         }
         release {
             debuggable false
@@ -62,6 +74,12 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             manifestPlaceholders = [enableCrashReporting: "true"]
             buildConfigField "String", "BASE_GOREST_API_URL", PRODUCTION_BASE_GOREST_API_URL
+
+            if (secretKeyPropertiesFile.exists()) {
+                buildConfigField("String", "GOREST_API_TOKEN", secretKeyProperties['PRODUCTION_GOREST_API_TOKEN'])
+            } else {
+                buildConfigField("String", "GOREST_API_TOKEN", "\"${System.env.PRODUCTION_GOREST_API_TOKEN}\"")
+            }
         }
     }
 
