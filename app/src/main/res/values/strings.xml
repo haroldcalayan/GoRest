@@ -1,4 +1,15 @@
 <resources>
     <string name="app_name">GoRest</string>
+
+    <!--  Common  -->
+    <string name="requesting">Requesting...</string>
+
+    <!--  Messages  -->
+
+    <!--  Main - User  -->
+
+    <!--  Main - Product  -->
+
     <string name="title_item_detail">Item Detail</string>
+
 </resources>
