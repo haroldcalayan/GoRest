@@ -1,0 +1,10 @@
+ext.configs = [
+        applicationName     : "GoRest",
+        applicationId       : "com.haroldcalayan.gorest",
+        versionCode         : 1,
+        versionName         : "0.0.1",
+        minSdkVersion       : 21,
+        targetSdkVersion    : 30,
+        compileSdkVersion   : 30,
+        buildToolsVersion   : "30.0.2",
+]
