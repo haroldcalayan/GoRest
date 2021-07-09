@@ -1,4 +1,4 @@
-package com.haroldcalayan.gorest
+package com.haroldcalayan.gorest.ui.main
 
 import android.content.Intent
 import android.os.Bundle
@@ -12,8 +12,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import com.haroldcalayan.gorest.R
 
-import com.haroldcalayan.gorest.dummy.DummyContent
+import com.haroldcalayan.gorest.ui.main.dummy.DummyContent
 
 /**
  * An activity representing a list of Pings. This activity

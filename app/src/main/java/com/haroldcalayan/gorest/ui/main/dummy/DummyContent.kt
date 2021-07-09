@@ -1,4 +1,4 @@
-package com.haroldcalayan.gorest.dummy
+package com.haroldcalayan.gorest.ui.main.dummy
 
 import java.util.ArrayList
 import java.util.HashMap

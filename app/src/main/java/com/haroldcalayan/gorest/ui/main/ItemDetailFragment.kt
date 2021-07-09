@@ -1,4 +1,4 @@
-package com.haroldcalayan.gorest
+package com.haroldcalayan.gorest.ui.main
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,7 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import com.haroldcalayan.gorest.dummy.DummyContent
+import com.haroldcalayan.gorest.R
+import com.haroldcalayan.gorest.ui.main.dummy.DummyContent
 
 /**
  * A fragment representing a single Item detail screen.
