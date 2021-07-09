@@ -1,45 +1,151 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-android-extensions'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+}
+
+apply from: "config.gradle"
+apply from: "dependencies.gradle"
+
+def secretKeyPropertiesFile = file("secretkey.properties")
+def secretKeyProperties = new Properties()
+if (secretKeyPropertiesFile.exists()) {
+    secretKeyProperties.load(new FileInputStream(secretKeyPropertiesFile))
 }
 
 android {
-    compileSdkVersion 30
-    buildToolsVersion "30.0.3"
+    compileSdkVersion configs.compileSdkVersion
+    buildToolsVersion configs.buildToolsVersion
 
     defaultConfig {
-        applicationId "com.haroldcalayan.gorest"
-        minSdkVersion 21
-        targetSdkVersion 30
-        versionCode 1
-        versionName "1.0"
+        applicationId configs.applicationId
+        minSdkVersion configs.minSdkVersion
+        targetSdkVersion configs.targetSdkVersion
+        versionCode configs.versionCode
+        versionName configs.versionName
+        buildConfigField "String", "DATABASE_NAME", DATABASE_NAME
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    buildTypes {
+    signingConfigs {
         release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            storeFile file('keystore/release.keystore')
+            storePassword 'android'
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
         }
     }
+
+    buildTypes {
+        debug {
+            debuggable true
+            minifyEnabled false
+            zipAlignEnabled false
+            manifestPlaceholders = [enableCrashReporting: "false"]
+            buildConfigField "String", "BASE_GOREST_API_URL", DEVELOPMENT_BASE_GOREST_API_URL
+        }
+        staging {
+            debuggable true
+            minifyEnabled false
+            zipAlignEnabled false
+            manifestPlaceholders = [enableCrashReporting: "true"]
+            buildConfigField "String", "BASE_GOREST_API_URL", STAGING_BASE_GOREST_API_URL
+        }
+        release {
+            debuggable false
+            minifyEnabled true
+            zipAlignEnabled true
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            manifestPlaceholders = [enableCrashReporting: "true"]
+            buildConfigField "String", "BASE_GOREST_API_URL", PRODUCTION_BASE_GOREST_API_URL
+        }
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
         jvmTarget = '1.8'
+    }
+
+    buildFeatures {
+        dataBinding = true
+    }
+
+    applicationVariants.all { variant ->
+        variant.outputs.all {
+            outputFileName = outputFileName.replace("app", "GoRest-v" + defaultConfig.versionName)
+        }
     }
 }
 
 dependencies {
 
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'androidx.core:core-ktx:1.6.0'
-    implementation 'androidx.appcompat:appcompat:1.3.0'
-    implementation 'com.google.android.material:material:1.4.0'
-    implementation 'androidx.recyclerview:recyclerview:1.2.1'
-    testImplementation 'junit:junit:4.+'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    // Kotlin
+    implementation kotlinStdLib
+    implementation kotlinXCoroutine
+
+    // AndroidX
+    implementation androidXDependencies.activityKTX
+    implementation androidXDependencies.annotation
+    implementation androidXDependencies.appCompat
+    implementation androidXDependencies.constraintLayout
+    implementation androidXDependencies.coreKTX
+    implementation androidXDependencies.lifecycleExtension
+    implementation androidXDependencies.lifecycleLiveDataKTX
+    implementation androidXDependencies.lifecycleRuntimeKTX
+    implementation androidXDependencies.lifecycleViewModelKTX
+    implementation androidXDependencies.recyclerView
+    implementation androidXDependencies.roomKTX
+    implementation androidXDependencies.roomRuntime
+    implementation androidXDependencies.roomRxJava2
+    implementation androidXDependencies.sqlite
+    kapt androidXDependencies.roomCompiler
+
+    // Google
+    implementation googleDependencies.material
+
+    // Retrofit
+    implementation retrofitDependencies.adapterRxJava2
+    implementation retrofitDependencies.retrofit
+    implementation retrofitDependencies.converterGson
+    implementation retrofitDependencies.converterMoshi
+
+    // OkHttp
+    implementation okHttpLoggingInterceptorDependency
+
+    // OkHttp Profiler
+    implementation okHttpProfilerDependency
+
+    // Moshi
+    implementation moshiDependencies.moshiKotlin
+    kapt moshiDependencies.moshiKotlinCodeGen
+
+    // Hilt
+    implementation hiltDependencies.hiltAndroid
+    kapt hiltDependencies.hiltAndroidCompiler
+
+    // Timber
+    implementation timberDependency
+
+    // Glide
+    implementation glideDependencies.glide
+    kapt glideDependencies.glideCompiler
+
+    // Firebase
+    implementation platform(firebaseDependencies.bom)
+    implementation firebaseDependencies.analyticsKTX
+    implementation firebaseDependencies.crashlyticsKTX
+    implementation firebaseDependencies.config
+
+    // Unit Test
+    testImplementation jUnitDependency
+    androidTestImplementation androidXTestDependencies.espresso
+    androidTestImplementation androidXTestDependencies.jUnitExt
 }
