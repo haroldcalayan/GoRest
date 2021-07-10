@@ -14,6 +14,7 @@ ext {
     androidXVersion2_0_4 = "2.0.4"
     androidXVersion2_2_0 = "2.2.0"
     androidXVersion2_2_5 = "2.2.5"
+    androidXVersion2_3_2 = "2.3.2"
     androidXDependencies = [
             activityKTX             : "androidx.activity:activity-ktx:$androidXVersion1_2_0",
             annotation              : "androidx.appcompat:appcompat:$androidXVersion1_1_0",
@@ -24,6 +25,10 @@ ext {
             lifecycleLiveDataKTX    : "androidx.lifecycle:lifecycle-livedata-ktx:$androidXVersion2_2_0",
             lifecycleRuntimeKTX     : "androidx.lifecycle:lifecycle-runtime-ktx:$androidXVersion2_2_0",
             lifecycleViewModelKTX   : "androidx.lifecycle:lifecycle-viewmodel-ktx:$androidXVersion2_2_0",
+            navigationFragment      : "androidx.navigation:navigation-fragment:$androidXVersion2_3_2",
+            navigationFragmentKTX   : "androidx.navigation:navigation-fragment-ktx:$androidXVersion2_3_2",
+            navigationUI            : "androidx.navigation:navigation-ui:$androidXVersion2_3_2",
+            navigationUIKTX         : "androidx.navigation:navigation-ui-ktx:$androidXVersion2_3_2",
             recyclerView            : "androidx.recyclerview:recyclerview:$androidXVersion1_1_0",
             roomCompiler            : "androidx.room:room-compiler:$androidXVersion2_2_5",
             roomKTX                 : "androidx.room:room-ktx:$androidXVersion2_2_5",

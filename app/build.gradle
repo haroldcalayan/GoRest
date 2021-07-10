@@ -119,6 +119,10 @@ dependencies {
     implementation androidXDependencies.lifecycleLiveDataKTX
     implementation androidXDependencies.lifecycleRuntimeKTX
     implementation androidXDependencies.lifecycleViewModelKTX
+    implementation androidXDependencies.navigationFragment
+    implementation androidXDependencies.navigationFragmentKTX
+    implementation androidXDependencies.navigationUI
+    implementation androidXDependencies.navigationUIKTX
     implementation androidXDependencies.recyclerView
     implementation androidXDependencies.roomKTX
     implementation androidXDependencies.roomRuntime
