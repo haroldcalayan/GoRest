@@ -7,6 +7,11 @@
     <!--  Messages  -->
 
     <!--  Main - User  -->
+    <string-array name="user_statuses">
+        <item>All</item>
+        <item>Active</item>
+        <item>Inactive</item>
+    </string-array>
 
     <!--  Main - Product  -->
 

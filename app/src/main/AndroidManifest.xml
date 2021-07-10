@@ -11,14 +11,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GoRest">
         <activity
-            android:name=".ui.main.ItemListActivity"
+            android:name=".ui.splash.SplashActivity"
             android:label="@string/app_name"
             android:theme="@style/Theme.GoRest.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.main.ItemListActivity"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.GoRest.NoActionBar">
         </activity>
         <activity
             android:name=".ui.main.ItemDetailActivity"
@@ -28,6 +32,17 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.haroldcalayan.gorest.ui.main.ItemListActivity" />
+        </activity>
+        <activity
+            android:name=".ui.main.MainActivity">
+        </activity>
+        <activity
+            android:name=".ui.main.user.master.UserMasterActivity"
+            android:theme="@style/Theme.GoRest.NoActionBar">
+        </activity>
+        <activity
+            android:name=".ui.main.user.detail.UserDetailActivity"
+            android:theme="@style/Theme.GoRest.NoActionBar">
         </activity>
     </application>
 
