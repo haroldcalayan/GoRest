@@ -4,8 +4,8 @@ import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
 data class BaseResponse<T>(
-    val code: Int,
-    val meta: Meta,
+    val code: Int? = null,
+    val meta: Meta? = null,
     val data: T
 ) {
 
