@@ -1,10 +1,7 @@
 package com.haroldcalayan.gorest.data.source.remote.service
 
 import com.haroldcalayan.gorest.base.BaseResponse
-import com.haroldcalayan.gorest.data.model.Product
-import com.haroldcalayan.gorest.data.model.ProductCategory
-import com.haroldcalayan.gorest.data.model.Todo
-import com.haroldcalayan.gorest.data.model.User
+import com.haroldcalayan.gorest.data.model.*
 import retrofit2.http.*
 
 interface GoRestApiService {
@@ -21,6 +18,9 @@ interface GoRestApiService {
 
     @GET("products")
     suspend fun getProducts(@Query("page") page: Int): BaseResponse<List<Product>>?
+
+    @GET("categories")
+    suspend fun getCategories(@Query("page") page: Int): BaseResponse<List<Category>>?
 
     @GET("product-categories")
     suspend fun getProductCategories(@Query("page") page: Int): BaseResponse<List<ProductCategory>>?
