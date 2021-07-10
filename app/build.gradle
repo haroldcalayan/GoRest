@@ -7,6 +7,7 @@ plugins {
 }
 
 apply from: "config.gradle"
+apply from: "keystore.gradle"
 apply from: "dependencies.gradle"
 
 def secretKeyPropertiesFile = file("secretkey.properties")
@@ -33,9 +34,9 @@ android {
     signingConfigs {
         release {
             storeFile file('keystore/release.keystore')
-            storePassword 'android'
-            keyAlias 'androiddebugkey'
-            keyPassword 'android'
+            storePassword signing.storePassword
+            keyAlias signing.keyAlias
+            keyPassword signing.keyPassword
         }
     }
 
