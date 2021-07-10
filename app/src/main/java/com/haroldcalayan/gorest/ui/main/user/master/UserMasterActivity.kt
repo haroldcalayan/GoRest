@@ -50,8 +50,8 @@ class UserMasterActivity : BaseActivity<UserMasterViewModel, ActivityUserMasterB
                 val users = viewModel.userList.value
                 when (position) {
                     0 -> adapter.updateData(users.orEmpty())
-                    1 -> adapter.updateData(users?.filter { it.status == "Active" }.orEmpty())
-                    2 -> adapter.updateData(users?.filter { it.status == "Inactive" }.orEmpty())
+                    1 -> adapter.updateData(users?.filter { it.status.toLowerCase() == "active" }.orEmpty())
+                    2 -> adapter.updateData(users?.filter { it.status.toLowerCase() == "inactive" }.orEmpty())
                 }
             }
 
