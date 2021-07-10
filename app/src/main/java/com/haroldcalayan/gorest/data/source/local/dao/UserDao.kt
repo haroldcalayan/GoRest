@@ -2,10 +2,11 @@ package com.haroldcalayan.gorest.data.source.local.dao
 
 import androidx.room.Dao
 import androidx.room.Query
+import com.haroldcalayan.gorest.base.BaseDao
 import com.haroldcalayan.gorest.data.model.User
 
 @Dao
-interface UserDao {
+interface UserDao : BaseDao<User> {
 
     @Query("SELECT * FROM $TABLE_NAME")
     suspend fun all(): List<User>
