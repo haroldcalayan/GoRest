@@ -20,20 +20,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.main.ItemListActivity"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.GoRest.NoActionBar">
-        </activity>
-        <activity
-            android:name=".ui.main.ItemDetailActivity"
-            android:label="@string/title_item_detail"
-            android:parentActivityName=".ui.main.ItemListActivity"
-            android:theme="@style/Theme.GoRest.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.haroldcalayan.gorest.ui.main.ItemListActivity" />
-        </activity>
-        <activity
             android:name=".ui.main.MainActivity">
         </activity>
         <activity
