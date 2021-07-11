@@ -6,6 +6,8 @@ import android.view.View
 import android.widget.AdapterView
 import androidx.activity.viewModels
 import androidx.core.widget.NestedScrollView
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.haroldcalayan.gorest.R
 import com.haroldcalayan.gorest.base.BaseActivity
@@ -15,6 +17,7 @@ import com.haroldcalayan.gorest.ui.main.user.detail.UserDetailActivity
 import com.haroldcalayan.gorest.ui.main.user.detail.UserDetailFragment
 import com.haroldcalayan.gorest.util.JsonUtils
 import dagger.hilt.android.AndroidEntryPoint
+
 
 @AndroidEntryPoint
 class UserMasterActivity : BaseActivity<UserMasterViewModel, ActivityUserMasterBinding>(),
@@ -50,8 +53,10 @@ class UserMasterActivity : BaseActivity<UserMasterViewModel, ActivityUserMasterB
                 val users = viewModel.userList.value
                 when (position) {
                     0 -> adapter.updateData(users.orEmpty())
-                    1 -> adapter.updateData(users?.filter { it.status.toLowerCase() == "active" }.orEmpty())
-                    2 -> adapter.updateData(users?.filter { it.status.toLowerCase() == "inactive" }.orEmpty())
+                    1 -> adapter.updateData(users?.filter { it.status.toLowerCase() == "active" }
+                        .orEmpty())
+                    2 -> adapter.updateData(users?.filter { it.status.toLowerCase() == "inactive" }
+                        .orEmpty())
                 }
             }
 
@@ -90,5 +95,7 @@ class UserMasterActivity : BaseActivity<UserMasterViewModel, ActivityUserMasterB
     private fun setupUserList(recyclerView: RecyclerView) {
         adapter = UserAdapter(emptyList(), this)
         recyclerView.adapter = adapter
+        val dividerItemDecoration = DividerItemDecoration(this, LinearLayoutManager.VERTICAL)
+        recyclerView.addItemDecoration(dividerItemDecoration)
     }
 }
