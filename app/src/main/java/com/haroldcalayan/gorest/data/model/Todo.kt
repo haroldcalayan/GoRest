@@ -8,5 +8,7 @@ import com.squareup.moshi.JsonClass
 @Entity(tableName = "todo")
 data class Todo(
     @PrimaryKey
-    val id: Int
+    val id: Int,
+    val name: String?,
+    val description: String?
 )
