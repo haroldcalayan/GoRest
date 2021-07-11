@@ -34,6 +34,7 @@ class ProductCategoryActivity : BaseActivity<ProductCategoryViewModel, ActivityP
 
     override fun initViews() {
         super.initViews()
+        initToolbar()
 
         if (findViewById<NestedScrollView>(R.id.category_item_detail_container) != null) twoPane = true
         setupCategoryList(findViewById(R.id.category_item_list))
@@ -64,6 +65,10 @@ class ProductCategoryActivity : BaseActivity<ProductCategoryViewModel, ActivityP
             }
             startActivity(intent)
         }
+    }
+
+    private fun initToolbar() {
+        supportActionBar?.title = getString(R.string.product_product_category)
     }
 
     private fun setupCategoryList(recyclerView: RecyclerView) {

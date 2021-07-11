@@ -47,7 +47,7 @@ class UserDetailActivity : BaseActivity<UserDetailViewModel, ActivityUserDetailB
 
         setSupportActionBar(findViewById(R.id.detail_toolbar))
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.title = "Client Detail"
+        supportActionBar?.title = getString(R.string.main_client_detail)
     }
 
     companion object {

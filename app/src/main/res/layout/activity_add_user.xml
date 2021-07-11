@@ -5,8 +5,8 @@
 
     <data>
         <variable
-            name="user"
-            type="com.haroldcalayan.gorest.data.model.User" />
+            name="viewModel"
+            type="com.haroldcalayan.gorest.ui.main.user.add.AddUserViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -23,18 +23,16 @@
             android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintRight_toLeftOf="@+id/edittext_name"/>
+            app:layout_constraintTop_toTopOf="parent"/>
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/edittext_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@{ user.name }"
             android:textAlignment="textEnd"
             android:textColor="@android:color/black"
             android:textSize="14sp"
-            app:layout_constraintLeft_toRightOf="@+id/textview_name_label"
+            app:layout_constraintWidth_percent="0.7"
             app:layout_constraintTop_toTopOf="@+id/textview_name_label"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintBottom_toBottomOf="@+id/textview_name_label"
@@ -50,18 +48,17 @@
             android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="@+id/edittext_email"
             app:layout_constraintTop_toBottomOf="@+id/textview_name_label"/>
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/edittext_email"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@{ user.email }"
+            android:inputType="textEmailAddress"
             android:textAlignment="textEnd"
             android:textColor="@android:color/black"
             android:textSize="14sp"
-            app:layout_constraintLeft_toRightOf="@+id/textview_email_label"
+            app:layout_constraintWidth_percent="0.7"
             app:layout_constraintTop_toTopOf="@+id/textview_email_label"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintBottom_toBottomOf="@+id/textview_email_label"
@@ -77,18 +74,17 @@
             android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="@+id/spinner_gender"
             app:layout_constraintTop_toBottomOf="@+id/textview_email_label"/>
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <androidx.appcompat.widget.AppCompatSpinner
             android:id="@+id/spinner_gender"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@{ user.gender }"
+            android:entries="@array/main_gender"
             android:textAlignment="textEnd"
             android:textColor="@android:color/black"
             android:textSize="14sp"
-            app:layout_constraintLeft_toRightOf="@+id/textview_gender_label"
+            app:layout_constraintWidth_percent="0.7"
             app:layout_constraintTop_toTopOf="@+id/textview_gender_label"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintBottom_toBottomOf="@+id/textview_gender_label"
@@ -104,58 +100,21 @@
             android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="@+id/spinner_status"
             app:layout_constraintTop_toBottomOf="@+id/textview_gender_label"/>
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <androidx.appcompat.widget.AppCompatSpinner
             android:id="@+id/spinner_status"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@{ user.status }"
+            android:entries="@array/main_add_user_status"
             android:textAlignment="textEnd"
             android:textColor="@android:color/black"
             android:textSize="14sp"
-            app:layout_constraintLeft_toRightOf="@+id/textview_status_label"
+            app:layout_constraintWidth_percent="0.7"
             app:layout_constraintTop_toTopOf="@+id/textview_status_label"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintBottom_toBottomOf="@+id/textview_status_label"
             tools:text="Active"/>
-
-        <View
-            android:id="@+id/view_divider"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="24dp"
-            android:background="@android:color/darker_gray"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textview_status_label"
-            app:layout_constraintRight_toRightOf="parent"/>
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/textview_todo_list"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="Todo list"
-            android:textColor="@android:color/black"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/view_divider"/>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerview_todos"
-            android:name="item_list_content.xml"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginTop="12dp"
-            app:layoutManager="LinearLayoutManager"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textview_todo_list"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            tools:context="com.haroldcalayan.gorest.ui.main.user.detail.UserDetailActivity"
-            tools:listitem="@layout/adapter_todo" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

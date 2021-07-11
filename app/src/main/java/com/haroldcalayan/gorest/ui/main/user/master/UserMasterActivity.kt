@@ -13,6 +13,8 @@ import com.haroldcalayan.gorest.R
 import com.haroldcalayan.gorest.base.BaseActivity
 import com.haroldcalayan.gorest.data.model.User
 import com.haroldcalayan.gorest.databinding.ActivityUserMasterBinding
+import com.haroldcalayan.gorest.ui.main.MainActivity
+import com.haroldcalayan.gorest.ui.main.user.add.AddUserActivity
 import com.haroldcalayan.gorest.ui.main.user.detail.UserDetailActivity
 import com.haroldcalayan.gorest.ui.main.user.detail.UserDetailFragment
 import com.haroldcalayan.gorest.util.JsonUtils
@@ -63,6 +65,10 @@ class UserMasterActivity : BaseActivity<UserMasterViewModel, ActivityUserMasterB
             override fun onNothingSelected(parent: AdapterView<*>?) {
             }
         }
+
+        binding.imageviewAdd.setOnClickListener {
+            openAddUser()
+        }
     }
 
     override fun observe() {
@@ -97,5 +103,11 @@ class UserMasterActivity : BaseActivity<UserMasterViewModel, ActivityUserMasterB
         recyclerView.adapter = adapter
         val dividerItemDecoration = DividerItemDecoration(this, LinearLayoutManager.VERTICAL)
         recyclerView.addItemDecoration(dividerItemDecoration)
+    }
+
+    private fun openAddUser() {
+        Intent(this, AddUserActivity::class.java).apply {
+            startActivity(this)
+        }
     }
 }

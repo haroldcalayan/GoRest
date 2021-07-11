@@ -14,7 +14,7 @@ interface GoRestApiService {
 
     @Headers("Authorization: Bearer")
     @POST("users")
-    suspend fun createUser(@Body body: User): User?
+    suspend fun createUser(@Body body: User): BaseResponse<User>?
 
     @GET("products")
     suspend fun getProducts(@Query("page") page: Int): BaseResponse<List<Product>>?

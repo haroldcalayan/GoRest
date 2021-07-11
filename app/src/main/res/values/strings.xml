@@ -5,15 +5,35 @@
     <string name="requesting">Requesting...</string>
 
     <!--  Messages  -->
+    <string name="message_name_not_empty">Name must not be empty</string>
+    <string name="message_email_not_empty">Email must not be empty</string>
+    <string name="message_client_is_created_successfully">A new client has been created successfully</string>
 
     <!--  Main - User  -->
-    <string-array name="user_statuses">
+    <string-array name="main_user_statuses">
         <item>All</item>
         <item>Active</item>
         <item>Inactive</item>
     </string-array>
 
-    <!--  Main - Product  -->
+    <string-array name="main_add_user_status">
+        <item>Active</item>
+        <item>Inactive</item>
+    </string-array>
+
+    <string-array name="main_gender">
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
+
+    <!--  Main - User - Details -->
+    <string name="main_client_detail">Client Detail</string>
+
+    <!--  Main - User - Add -->
+    <string name="main_new_client">New Client</string>
+
+    <!--  Main - Product - Category -->
+    <string name="product_product_category">Product Category</string>
 
     <string name="title_item_detail">Item Detail</string>
 

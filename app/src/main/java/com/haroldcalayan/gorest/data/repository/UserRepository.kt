@@ -12,7 +12,7 @@ import com.haroldcalayan.gorest.util.NetworkUtils
 interface UserRepository {
     suspend fun getUsers(page: Int = 1): BaseResponse<List<User>>?
     suspend fun getUserTodos(userId: Int, page: Int = 1): BaseResponse<List<Todo>>?
-    suspend fun createUser(user: User): User?
+    suspend fun createUser(user: User): BaseResponse<User>?
 }
 
 class UserRepositoryImpl(
@@ -37,7 +37,7 @@ class UserRepositoryImpl(
         }
     }
 
-    override suspend fun createUser(user: User): User? {
+    override suspend fun createUser(user: User): BaseResponse<User>? {
         return api.createUser(user)
     }
 
