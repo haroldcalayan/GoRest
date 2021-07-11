@@ -27,11 +27,6 @@ abstract class BaseFragment<T : BaseViewModel, B: ViewDataBinding> : Fragment() 
         return rootView
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        initViews()
-    }
-
     open fun initViews() {
     }
 

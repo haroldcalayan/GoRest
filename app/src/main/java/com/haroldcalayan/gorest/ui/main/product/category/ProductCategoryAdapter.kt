@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.haroldcalayan.gorest.BR
 import com.haroldcalayan.gorest.R
 import com.haroldcalayan.gorest.data.model.Category
+import com.haroldcalayan.gorest.databinding.AdapterProductCategoryBinding
 import com.haroldcalayan.gorest.databinding.AdapterUserBinding
 
 class ProductCategoryAdapter(
@@ -19,7 +20,7 @@ class ProductCategoryAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductCategoryAdapterViewHolder {
-        val binding: AdapterUserBinding = DataBindingUtil.inflate(
+        val binding: AdapterProductCategoryBinding = DataBindingUtil.inflate(
             LayoutInflater.from(parent.context),
             R.layout.adapter_product_category,
             parent,
@@ -41,7 +42,7 @@ class ProductCategoryAdapter(
         notifyDataSetChanged()
     }
 
-    class ProductCategoryAdapterViewHolder(private val binding: AdapterUserBinding) : RecyclerView.ViewHolder(binding.root) {
+    class ProductCategoryAdapterViewHolder(private val binding: AdapterProductCategoryBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(category: Category) {
             binding.setVariable(BR.category, category)

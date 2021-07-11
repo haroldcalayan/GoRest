@@ -6,7 +6,9 @@ import androidx.activity.viewModels
 import com.haroldcalayan.gorest.R
 import com.haroldcalayan.gorest.base.BaseActivity
 import com.haroldcalayan.gorest.databinding.ActivityUserDetailBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class UserDetailActivity : BaseActivity<UserDetailViewModel, ActivityUserDetailBinding>() {
 
     override val layoutId = R.layout.activity_user_detail

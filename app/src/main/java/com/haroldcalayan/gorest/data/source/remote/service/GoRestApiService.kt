@@ -9,7 +9,7 @@ interface GoRestApiService {
     @GET("users")
     suspend fun getUsers(@Query("page") page: Int): BaseResponse<List<User>>?
 
-    @GET("user/{id}/todos")
+    @GET("users/{id}/todos")
     suspend fun getUserTodos(@Path("id") userId: Int, @Query("page") page: Int): BaseResponse<List<Todo>>?
 
     @Headers("Authorization: Bearer")
