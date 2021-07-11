@@ -30,6 +30,9 @@
             android:name=".ui.main.user.detail.UserDetailActivity"
             android:theme="@style/Theme.GoRest.NoActionBar">
         </activity>
+        <activity
+            android:name=".ui.main.product.category.ProductCategoryActivity">
+        </activity>
     </application>
 
 </manifest>

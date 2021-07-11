@@ -10,7 +10,7 @@
     android:divider="?android:attr/dividerHorizontal"
     android:orientation="horizontal"
     android:showDividers="middle"
-    tools:context=".ui.main.ItemListActivity">
+    tools:context=".ui.main.user.master.UserMasterActivity">
 
     <!--
     This layout is a two-pane layout for the Items master/detail flow.
@@ -18,18 +18,17 @@
 
     <androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/item_list"
-        android:name="com.haroldcalayan.gorest.ItemListFragment"
+        android:id="@+id/category_item_list"
         android:layout_width="@dimen/item_width"
         android:layout_height="match_parent"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         app:layoutManager="LinearLayoutManager"
-        tools:context="com.haroldcalayan.gorest.ui.main.ItemListActivity"
-        tools:listitem="@layout/item_list_content" />
+        tools:context="com.haroldcalayan.gorest.ui.main.product.category.ProductCategoryActivity"
+        tools:listitem="@layout/adapter_product_category" />
 
     <FrameLayout
-        android:id="@+id/item_detail_container"
+        android:id="@+id/category_item_detail_container"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="3" />
