@@ -20,7 +20,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.main.MainActivity">
+            android:name=".ui.main.MainActivity"
+            android:theme="@style/Theme.GoRest.NoActionBar">
         </activity>
         <activity
             android:name=".ui.main.user.master.UserMasterActivity"

@@ -9,35 +9,33 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/button_user"
-            android:layout_width="match_parent"
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_navigation_view"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="32dp"
-            android:backgroundTint="@color/primaryColor"
-            android:text="User"
-            android:textColor="@color/secondaryColor"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            android:layout_marginStart="0dp"
+            android:layout_marginEnd="0dp"
+            android:background="?android:attr/windowBackground"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:menu="@menu/bottom_nav_menu" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/button_product"
+        <fragment
+            android:id="@+id/navigation_host_fragment"
+            android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="32dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginRight="32dp"
-            android:backgroundTint="@color/primaryColor"
-            android:text="Product"
-            android:textColor="@color/secondaryColor"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button_user"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            android:layout_height="0dp"
+            app:defaultNavHost="true"
+            app:layout_constraintBottom_toTopOf="@id/bottom_navigation_view"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:navGraph="@navigation/mobile_navigation" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

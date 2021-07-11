@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_user">
+
+    <fragment
+        android:id="@+id/navigation_user"
+        android:name="com.haroldcalayan.gorest.ui.main.user.master.UserMasterFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home" >
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_product"
+        android:name="com.haroldcalayan.gorest.ui.main.product.category.ProductCategoryFragment"
+        android:label="Settings"
+        tools:layout="@layout/fragment_settings" />
+</navigation>

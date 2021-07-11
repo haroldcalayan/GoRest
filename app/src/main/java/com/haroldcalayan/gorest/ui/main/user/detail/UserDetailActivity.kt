@@ -29,7 +29,7 @@ class UserDetailActivity : BaseActivity<UserDetailViewModel, ActivityUserDetailB
             }
 
             supportFragmentManager.beginTransaction()
-                .add(R.id.item_detail_container, fragment)
+                .add(R.id.user_item_detail_container, fragment)
                 .commit()
         }
     }
